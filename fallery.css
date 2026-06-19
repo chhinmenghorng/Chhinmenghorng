@@ -1,0 +1,240 @@
+/* ── Body ── */
+body {
+  font-family: 'Syne', sans-serif;
+  background-color: #eef2f8;
+  color: #494c4f;
+  min-height: 768px;
+  display: flex;
+  flex-direction: column;
+
+  /* grid pattern background */
+  background-image:
+    linear-gradient(#e0e7ef 1px, transparent 1px),
+    linear-gradient(90deg, #e0e7ef 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* ── HEADER ── */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  background-color: #e2e7ee;
+  border-bottom: 1px solid #e0e7ef;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #1c1e20;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* the green blinking dot */
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3fb950;
+  box-shadow: 0 0 8px #3fb950;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.filename {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #1c1e20;
+}
+
+/* ── MAIN ── */
+.site-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 20px;
+}
+
+/* ── SECTION ── */
+.gallery-section {
+  width: 100%;
+  max-width: 680px;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #494c4f;
+  margin-bottom: 6px;
+}
+
+.gallery-title span {
+  color: #f0a500;
+}
+
+.gallery-subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #1c1e20;
+  margin-bottom: 28px;
+}
+
+
+/* ── GALLERY CONTAINER ── */
+.gallery-container {
+  background-color: #d1d8e2;
+  border: 1px solid #e0e7ef;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  animation: slideUp 0.5s ease both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── MAIN IMAGE ── */
+#main-image {
+  width: 100%;
+  max-width: 600px;
+  height: 340px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: opacity 0.2s ease;
+}
+
+/* ── THUMBNAILS ROW ── */
+.thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ── EACH THUMBNAIL ── */
+.thumb {
+  width: 110px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0.55;
+  border: 3px solid transparent;
+  transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.thumb:hover {
+  opacity: 0.85;
+  transform: scale(1.05);
+}
+/* selected thumbnail gets a gold border */
+.thumb.active {
+  border-color: #f0a500;
+  opacity: 1;
+  transform: scale(1.05);
+}
+/* ── THEME BUTTONS ── */
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.btn-group button {
+  font-family: 'Syne', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 28px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.btn-group button:active {
+  transform: scale(0.97);
+}
+#light-btn {
+  background-color: #f0f4ff;
+  color: #1e2b5c;
+  border: 2px solid #c8d8f0;
+}
+#light-btn:hover         { background-color: #dce8ff; }
+#light-btn.active        { background-color: #1e2b5c; color: #ffffff; border-color: #1e2b5c; }
+#dark-btn {
+  background-color: #f0a500;
+  color: #1e2b5c;
+}
+#dark-btn:hover          { background-color: #ffbe2e; }
+#dark-btn.active         { box-shadow: 0 0 12px rgba(240, 165, 0, 0.5); }
+
+/* ── FOOTER ── */
+.site-footer {
+  text-align: center;
+  padding: 18px;
+  background-color: #e2e7ee;
+  border-top: 1px solid #e0e7ef;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #1c1e20;
+}
+
+
+/* ═══════════════════════════════════════
+   DARK MODE
+   When JavaScript adds class="dark-mode"
+   to <body>, these rules take over.
+   ═══════════════════════════════════════ */
+body.dark-mode {
+  background-color: #0d1117;
+  color: #c9d1d9;
+  background-image:
+    linear-gradient(#30363d 1px, transparent 1px),
+    linear-gradient(90deg, #30363d 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+body.dark-mode .site-header {
+  background-color: #21262d;
+  border-bottom-color: #30363d;
+}
+
+body.dark-mode .badge {
+  color: #8b949e;
+}
+
+body.dark-mode .filename {
+  color: #8b949e;
+}
+
+body.dark-mode .gallery-title {
+  color: #c9d1d9;
+}
+
+body.dark-mode .gallery-subtitle {
+  color: #8b949e;
+}
+
+body.dark-mode .gallery-container {
+  background-color: #161b22;
+  border-color: #30363d;
+}
+
+body.dark-mode .site-footer {
+  background-color: #21262d;
+  border-top-color: #30363d;
+  color: #8b949e;
+}
